@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/users/:user_id/events', to: 'user_events#index'
   post '/users/:user_id/events', to: 'user_events#create'
   post '/login', to: 'sessions#create'
+  post '/session_user', to: 'sessions#show'
 end
