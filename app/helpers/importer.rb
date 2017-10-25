@@ -1,7 +1,7 @@
-class Importer 
+class Importer
 
-    def self.import(url, month) 
-        
+    def self.import(url, month)
+        byebug
         page = HTTParty.get(url)
         parse_page = Nokogiri::HTML(page)
         $i = 0

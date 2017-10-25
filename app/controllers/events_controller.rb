@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
 
-
     def index
         render json: Event.all
     end
@@ -8,6 +7,5 @@ class EventsController < ApplicationController
     def show
         render json: Event.find(params[:id])
     end
-
 
 end

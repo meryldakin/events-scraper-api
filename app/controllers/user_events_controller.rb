@@ -7,8 +7,7 @@ class UserEventsController < ApplicationController
 
 
     def create
-      byebug
-      UserEvents.create(user: current_user, event: event)
+      UserEvent.create(user: current_user, event: event)
       render json: current_user.events
     end
 

@@ -21,13 +21,17 @@ class SessionsController < ApplicationController
     def show
         jwt = JWT.decode(params[:token], ENV['JWT_SECRET'], ENV['JWT_ALGORITHM'])
         user = User.find(jwt[0]["user_id"])
-        render json: {
-            user: {
-              id: user.id,
-              first_name: user.first_name,
-              last_name: user.last_name
-            }
-        }
+        if user
+          render json: {
+              user: {
+                id: user.id,
+                first_name: user.first_name,
+                last_name: user.last_name
+              }
+          }
+        else
+          render json: {error: 'No user found'}
+        end
     end
 
 end
