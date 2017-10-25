@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post '/users/:user_id/events', to: 'user_events#create'
   post '/login', to: 'sessions#create'
   post '/session_user', to: 'sessions#show'
+  delete '/remove_saved_event', to: 'user_events#destroy'
 end

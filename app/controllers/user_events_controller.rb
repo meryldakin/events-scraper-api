@@ -8,7 +8,13 @@ class UserEventsController < ApplicationController
 
     def create
       UserEvent.create(user: current_user, event: event)
-      render json: current_user.events
+      render json: event
+    end
+
+    def destroy
+      user_event = UserEvent.find_by(event_id: event.id, user_id: current_user)
+      user_event.destroy
+      render json: event.id
     end
 
     # private
