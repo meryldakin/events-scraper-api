@@ -8,10 +8,11 @@
 
 Source.create(name: "Time Out", url: "https://www.timeout.com")
 
+# , "February", "March", "April", "May", "June", "July", "August", "September", "October", 
+months = ["November", "December"]
 
-months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 months.collect do |month|
-    if  Date::MONTHNAMES.index(month) >= Date.today.month
-        Importer.import("https://www.timeout.com/newyork/events-calendar/#{month}-events-calendar", month)
-    end
+    # if  Date::MONTHNAMES.index(month) >= Date.today.month
+        Importer.import("https://www.timeout.com/newyork/events-calendar/#{month}-events-calendar", Date::MONTHNAMES.index(month))
+    # end
 end
